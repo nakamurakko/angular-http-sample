@@ -1,0 +1,19 @@
+<p>multiple-http-sample works!</p>
+
+<button mat-raised-button
+        (click)="onHttpClick()">HTTP Sample</button>
+<button mat-raised-button
+        (click)="onMultipleHttpClick()">HTTP Multi Sample</button>
+
+<div>
+  <mat-form-field>
+    <mat-label>Response Data</mat-label>
+    <textarea matInput
+              title="responseData"
+              [ngModel]="responseData"></textarea>
+  </mat-form-field>
+
+  <div *ngIf="isProcessing">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+</div>

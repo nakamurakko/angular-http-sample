@@ -1,6 +1,7 @@
+import { forkJoin } from 'rxjs';
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { forkJoin } from 'rxjs';
 
 import { DataPoolService } from '../services/data-pool.service';
 import { HttpHeaderService } from '../services/http-header.service';
@@ -31,12 +32,8 @@ export class MultipleHttpSampleComponent implements OnInit {
       .subscribe(
         response => {
           this.responseData = JSON.stringify(response);
-        },
-        error => { },
-        () => {
           this.isProcessing = false;
-        }
-      );
+        });
   }
 
   /**
@@ -55,12 +52,8 @@ export class MultipleHttpSampleComponent implements OnInit {
       .subscribe(
         response => {
           this.responseData = JSON.stringify(response);
-        },
-        error => { },
-        () => {
           this.isProcessing = false;
-        }
-      );
+        });
   }
 
 }

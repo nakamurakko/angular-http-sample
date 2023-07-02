@@ -6,9 +6,10 @@
         (click)="onMultipleHttpClick()">HTTP Multi Sample</button>
 
 <div>
-  <mat-form-field>
+  <mat-form-field class="form-field-width-stretch">
     <mat-label>Response Data</mat-label>
     <textarea matInput
+              rows="10"
               title="responseData"
               [ngModel]="responseData"></textarea>
   </mat-form-field>

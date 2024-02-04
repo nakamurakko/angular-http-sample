@@ -1,4 +1,4 @@
-import { Observable, Subject } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -19,16 +19,10 @@ export class DataPoolService {
    * @returns NumberValueの配列
    */
   public getNumbers(): Observable<Array<NumberValue>> {
-    const result: Subject<Array<NumberValue>> = new Subject<Array<NumberValue>>();
-
-    this.http.get('http://localhost:3000/GetNumbers', { headers: this.httpHeaderService.getHttpHeaders() })
-      .subscribe(response => {
-        result.next(response as Array<NumberValue>);
-
-        result.complete();
-      });
-
-    return result;
+    return this.http.get('http://localhost:3000/GetNumbers', { headers: this.httpHeaderService.getHttpHeaders() })
+      .pipe(
+        map(value => value as Array<NumberValue>)
+      );
   }
 
   /**
@@ -37,15 +31,10 @@ export class DataPoolService {
    * @returns 文字列の配列
    */
   public getStrings(): Observable<Array<string>> {
-    const result: Subject<Array<string>> = new Subject<Array<string>>();
-
-    this.http.get('http://localhost:3000/GetStrings', { headers: this.httpHeaderService.getHttpHeaders() })
-      .subscribe(response => {
-        result.next(response as Array<string>);
-        result.complete();
-      });
-
-    return result;
+    return this.http.get('http://localhost:3000/GetStrings', { headers: this.httpHeaderService.getHttpHeaders() })
+      .pipe(
+        map(value => value as Array<string>)
+      );
   }
 
 }

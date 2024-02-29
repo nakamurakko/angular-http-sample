@@ -17,7 +17,7 @@ export class AppService {
 
       for (let i: number = 0; i < 10; i++) {
         const numberValue: NumberValue = new NumberValue();
-        numberValue.Value = i;
+        numberValue.value = i;
 
         result.push(numberValue);
       }

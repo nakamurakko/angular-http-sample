@@ -1,5 +1,5 @@
 export class NumberValue {
 
-  public Value: number = 0;
+  public value: number = 0;
 
 }

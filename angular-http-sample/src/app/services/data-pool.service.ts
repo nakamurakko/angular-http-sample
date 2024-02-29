@@ -11,7 +11,11 @@ import { HttpHeaderService } from './http-header.service';
 })
 export class DataPoolService {
 
-  public constructor(private http: HttpClient, private httpHeaderService: HttpHeaderService) { }
+  public constructor(
+    private http: HttpClient,
+    private httpHeaderService: HttpHeaderService
+  ) {
+  }
 
   /**
    * NumberValueクラスを介して数値の配列を返す。

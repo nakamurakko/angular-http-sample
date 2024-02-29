@@ -8,12 +8,10 @@ describe('MultipleHttpSampleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MultipleHttpSampleComponent ]
+      imports: [MultipleHttpSampleComponent]
     })
-    .compileComponents();
-  });
+      .compileComponents();
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(MultipleHttpSampleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

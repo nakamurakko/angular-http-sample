@@ -1,24 +1,39 @@
 import { forkJoin } from 'rxjs';
 
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { DataPoolService } from '../services/data-pool.service';
-import { HttpHeaderService } from '../services/http-header.service';
 
 @Component({
   selector: 'app-multiple-http-sample',
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatProgressBarModule
+  ],
   templateUrl: './multiple-http-sample.component.html',
-  styleUrls: ['./multiple-http-sample.component.css']
+  styleUrl: './multiple-http-sample.component.css'
 })
-export class MultipleHttpSampleComponent implements OnInit {
+export class MultipleHttpSampleComponent {
 
   public responseData: string = '';
   public isProcessing: boolean = false;
 
-  public constructor(private http: HttpClient, private httpHeaderService: HttpHeaderService, private dataPoolService: DataPoolService) { }
-
-  public ngOnInit(): void {
+  public constructor(
+    private http: HttpClient,
+    private dataPoolService: DataPoolService
+  ) {
   }
 
   /**
@@ -29,11 +44,10 @@ export class MultipleHttpSampleComponent implements OnInit {
 
     this.isProcessing = true;
     this.dataPoolService.getNumbers()
-      .subscribe(
-        response => {
-          this.responseData = JSON.stringify(response);
-          this.isProcessing = false;
-        });
+      .subscribe(response => {
+        this.responseData = JSON.stringify(response);
+        this.isProcessing = false;
+      });
   }
 
   /**
@@ -43,17 +57,14 @@ export class MultipleHttpSampleComponent implements OnInit {
     this.responseData = '';
 
     this.isProcessing = true;
-    forkJoin(
-      [
-        this.dataPoolService.getNumbers(),
-        this.dataPoolService.getStrings(),
-      ]
-    )
-      .subscribe(
-        response => {
-          this.responseData = JSON.stringify(response);
-          this.isProcessing = false;
-        });
+    forkJoin([
+      this.dataPoolService.getNumbers(),
+      this.dataPoolService.getStrings(),
+    ])
+      .subscribe(response => {
+        this.responseData = JSON.stringify(response);
+        this.isProcessing = false;
+      });
   }
 
 }

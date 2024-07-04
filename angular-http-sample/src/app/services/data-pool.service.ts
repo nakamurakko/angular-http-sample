@@ -1,4 +1,4 @@
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -23,10 +23,7 @@ export class DataPoolService {
    * @returns NumberValueの配列
    */
   public getNumbers(): Observable<Array<NumberValue>> {
-    return this.http.get('http://localhost:3000/GetNumbers', { headers: this.httpHeaderService.getHttpHeaders() })
-      .pipe(
-        map(value => value as Array<NumberValue>)
-      );
+    return this.http.get<Array<NumberValue>>('http://localhost:3000/GetNumbers', { headers: this.httpHeaderService.getHttpHeaders() });
   }
 
   /**
@@ -35,10 +32,7 @@ export class DataPoolService {
    * @returns 文字列の配列
    */
   public getStrings(): Observable<Array<string>> {
-    return this.http.get('http://localhost:3000/GetStrings', { headers: this.httpHeaderService.getHttpHeaders() })
-      .pipe(
-        map(value => value as Array<string>)
-      );
+    return this.http.get<Array<string>>('http://localhost:3000/GetStrings', { headers: this.httpHeaderService.getHttpHeaders() });
   }
 
 }

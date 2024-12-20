@@ -12,17 +12,17 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DataPoolService } from '../services/data-pool.service';
 
 @Component({
-    selector: 'app-multiple-http-sample',
-    imports: [
-        CommonModule,
-        FormsModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatProgressBarModule
-    ],
-    templateUrl: './multiple-http-sample.component.html',
-    styleUrl: './multiple-http-sample.component.css'
+  selector: 'app-multiple-http-sample',
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatProgressBarModule
+  ],
+  templateUrl: './multiple-http-sample.component.html',
+  styleUrl: './multiple-http-sample.component.css'
 })
 export class MultipleHttpSampleComponent {
 

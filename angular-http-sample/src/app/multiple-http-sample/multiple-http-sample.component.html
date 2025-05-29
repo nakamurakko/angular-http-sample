@@ -14,7 +14,9 @@
               [ngModel]="responseData"></textarea>
   </mat-form-field>
 
-  <div *ngIf="isProcessing">
+  @if (isProcessing) {
+  <div>
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
   </div>
+  }
 </div>

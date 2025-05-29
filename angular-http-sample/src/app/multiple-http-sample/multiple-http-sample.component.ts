@@ -1,6 +1,5 @@
 import { forkJoin } from 'rxjs';
 
-import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +13,6 @@ import { DataPoolService } from '../services/data-pool.service';
 @Component({
   selector: 'app-multiple-http-sample',
   imports: [
-    CommonModule,
     FormsModule,
     MatButtonModule,
     MatFormFieldModule,

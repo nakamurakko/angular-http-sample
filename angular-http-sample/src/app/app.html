@@ -1,0 +1,22 @@
+<div>
+  <button matButton="elevated"
+          (click)="onHttpClick()">HTTP Sample</button>
+  <button matButton="elevated"
+          (click)="onMultipleHttpClick()">HTTP Multi Sample</button>
+
+  <div>
+    <mat-form-field class="form-field-width-stretch">
+      <mat-label>Response Data</mat-label>
+      <textarea matInput
+                rows="10"
+                title="responseData"
+                [value]="responseData()"></textarea>
+    </mat-form-field>
+
+    @if (isProcessing()) {
+    <div>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+    }
+  </div>
+</div>

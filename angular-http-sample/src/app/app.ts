@@ -23,7 +23,7 @@ export class App {
 
   private dataPoolService = inject(DataPoolService);
 
-  protected readonly title = signal<string>('angular-http-sample');
+  protected readonly title = signal<string>('angular-http-sample').asReadonly();
 
 
   public responseData = signal<string>('');

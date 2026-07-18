@@ -22,7 +22,6 @@ export class AppService {
         result.push(numberValue);
       }
 
-
       return of(result);
     });
   }

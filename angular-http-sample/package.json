@@ -24,10 +24,10 @@
   "private": true,
   "packageManager": "npm@11.6.4",
   "dependencies": {
-    "@angular/cdk": "22.2.0",
+    "@angular/cdk": "22.1.4",
     "@angular/common": "22.1.4",
     "@angular/compiler": "22.1.4",
-    "@angular/core": "22.2.0",
+    "@angular/core": "22.1.4",
     "@angular/forms": "22.1.4",
     "@angular/material": "22.1.4",
     "@angular/platform-browser": "22.1.4",
@@ -38,7 +38,7 @@
   "devDependencies": {
     "@angular/build": "22.1.6",
     "@angular/cli": "22.1.6",
-    "@angular/compiler-cli": "22.2.0",
+    "@angular/compiler-cli": "22.1.4",
     "angular-eslint": "22.2.0",
     "eslint": "10.9.1",
     "jsdom": "30.0.1",
